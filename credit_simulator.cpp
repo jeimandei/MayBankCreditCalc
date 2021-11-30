@@ -98,7 +98,7 @@ int main(){
 			}while(dp < (0.25*loan));
 		}
 		
-		double pokok_pinjam[6], total_pinjam[6], cicilan_perbulan[6], cicilan_pertahun[6];
+		double pokok_pinjam[6], total_pinjam[6], cicilan_perbulan[6], cicilan_pertahun[6], cicilan_rata;
 		float rate[6];
 		
 		if(strcmp(type, "mobil") == 0){
@@ -141,9 +141,14 @@ int main(){
 			cicilan_pertahun[i] = cicilan_perbulan[i]*12;
 
 			cout << left << setw(7) << i << left << setw(27) << fixed << setprecision(2) << cicilan_perbulan[i] << left << setw(25) << pokok_pinjam[i] * rate[i] << left << setw(12) << rate[i]*100 << endl;
-
+			cicilan_rata = cicilan_rata + cicilan_pertahun[i];
 		}
-
+		
+		cout << endl;
+		cout << endl;
+		cout << "Cicilan Rata-rata perbulan dengan Tenor " << tenor << " Tahun adalah Rp. " << cicilan_rata/(tenor*12) << ",-" << endl;
+		
+		cout << endl;
 		cout << endl;
 		cout << "============================================" << endl;
 		cout << endl;
